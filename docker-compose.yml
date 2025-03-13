@@ -1,0 +1,11 @@
+# docker-compose exec alpine /bin/sh
+
+services:
+  alpine:
+    image: alpine:latest
+    platform: linux/amd64
+    stdin_open: true
+    volumes:
+      - .:/mnt
+    working_dir: /mnt
+    command: /bin/sh -c "apk update && apk add binutils make && /bin/sh"
